@@ -1,0 +1,29 @@
+
+<!doctype html>
+<html>
+    <head>
+        <title>Build a Blog</title>
+        <style>
+            .title {    text-align: center;}
+            .title-input {  display: block;}
+            .body-input {   display: block;
+                            height: 10em;
+                            width: 15em;}
+            .error {    color: red;
+                        visibility: hidden;}
+            .spacing {  margin-top: 3em;}
+            .links {    text-decoration: none;
+                        color: black;}
+        </style>
+    </head>
+    <body>
+        <div>
+            <a href="http://127.0.0.1:5000/blog">Main Blog Page</a>
+            <a href="http://127.0.0.1:5000/newpost">Add a Blog Entry</a>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+
+    </body>
+</html>

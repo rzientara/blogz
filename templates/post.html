@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if posts is iterable %}
+    {% for post in posts%}
+        <h1 class="title">{{post.title}}</h1>
+        <div>
+            {{post.body}}
+        </div>
+    {% endfor %}
+
+{% else %}
+    <h1 class="title">{{posts.title}}</h1>
+    <div>
+        {{posts.body}}
+    </div>
+    
+{% endif %}
+
+{% endblock %}
