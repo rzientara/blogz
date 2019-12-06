@@ -1,15 +1,25 @@
+<!--all posts page-->
 {% extends "base.html" %}
 
 {% block content %}
 
-<h1 class="title">Build a Blog</h1>
+<h1>blog posts!</h1>
 
-{% for post in posts%}
-    <label>
-        <h1><a class="links" href="http://127.0.0.1:5000/blog?id={{post.id}}">{{post.title}}</a></h1>
-        {{post.body}}
-    </label>
-    <hr>
+{% for post in posts %}
+    <div class="posts">
+        <h3 class="mb-0"><a href="http://127.0.0.1:5000/blog?id={{post.id}}">{{post.title}}</a></h3>
+        <p class="card-text mb-auto">{{post.body}}</p>
+    </div>
+    {% for user in users %}
+        {% if user.id == post.owner_id %}
+            <div class="posts">
+                <p class="card-text mb-auto" style="font-style: italic;">
+                    written by <a href="http://127.0.0.1:5000/blog?user={{user.username}}">{{user.username}}</a>
+                </p>
+            </div>
+            <hr>
+        {% endif %}
+    {% endfor %}
 {% endfor %}
 
 {% endblock %}

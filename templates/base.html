@@ -2,28 +2,33 @@
 <!doctype html>
 <html>
     <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/sign-in/">
         <title>Build a Blog</title>
         <style>
-            .title {    text-align: center;}
-            .title-input {  display: block;}
-            .body-input {   display: block;
-                            height: 10em;
-                            width: 15em;}
-            .error {    color: red;
-                        visibility: hidden;}
+            .error {    color: red;}
             .spacing {  margin-top: 3em;}
-            .links {    text-decoration: none;
-                        color: black;}
+            .post-title-input { width: 30em;}
+            .post-body-input {  width: 30em;
+                                height: 10em;
+                                line-height: 1em;}
+            .posts {    width: 30em;}
+            
         </style>
     </head>
     <body>
-        <div>
-            <a href="http://127.0.0.1:5000/blog">Main Blog Page</a>
-            <a href="http://127.0.0.1:5000/newpost">Add a Blog Entry</a>
+        <div class="container">
+            <nav class="nav d-flex justify-content-between" style="margin: 1.5em 0 1.5em 0;">
+                <a class="link" href="http://127.0.0.1:5000/">Home</a>
+                <a class="link" href="http://127.0.0.1:5000/blog">All Posts</a>
+                <a class="link" href="http://127.0.0.1:5000/newpost">New posts</a>
+                <a class="link" href="http://127.0.0.1:5000/login">Login</a>
+                <a class="link" href="http://127.0.0.1:5000/logout">Logout</a>
+            </nav>
+
+            {% block content %}
+            {% endblock %}
         </div>
-
-        {% block content %}
-        {% endblock %}
-
     </body>
 </html>

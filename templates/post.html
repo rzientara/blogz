@@ -1,19 +1,30 @@
+<!--page for all posts by a user and individual post page-->
 {% extends "base.html" %}
 
 {% block content %}
 
 {% if posts is iterable %}
+    <h1>blog posts!</h1>
     {% for post in posts%}
-        <h1 class="title">{{post.title}}</h1>
-        <div>
-            {{post.body}}
+        <div class="posts">
+            <h3 class="mb-0"><a href="http://127.0.0.1:5000/blog?id={{post.id}}">{{post.title}}</a></h3>
+            <p class="card-text mb-auto">{{post.body}}</p>
         </div>
+        {% for user in users %}
+            {% if user.id == post.owner_id %}
+                <div class="posts">
+                    <p class="card-text mb-auto" style="font-style: italic;">
+                        written by <a href="http://127.0.0.1:5000/blog?user={{user.username}}">{{user.username}}</a>
+                    </p>
+                </div>
+                <hr>
+            {% endif %}
+        {% endfor %} 
     {% endfor %}
-
 {% else %}
-    <h1 class="title">{{posts.title}}</h1>
-    <div>
-        {{posts.body}}
+    <div class="posts">
+        <h3 class="mb-0">{{posts.title}}</h3>
+        <p class="card-text mb-auto">{{posts.body}}</p>
     </div>
     
 {% endif %}

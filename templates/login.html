@@ -1,0 +1,29 @@
+<!--login page-->
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Login</h1>
+<form action="/login" method="post" class="form-signin">
+    <label class="error" name="error">{{error}}</label>
+    <table>
+        <tr>
+            <td><label for="username">Username</label></td>
+            <td>
+                <input name="username" type="text" value="{{username}}" class="form-control" style="width: 20em;">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="password">Password</label></td>
+            <td>
+                <input name="password" type="password" value="{{password}}" class="form-control">
+            </td>
+        </tr>
+    </table>
+    <input type="submit">
+</form>
+
+<label>Don't have an account? </label>
+<a href="http://127.0.0.1:5000/signup">Create one!</a>
+
+{% endblock %}
